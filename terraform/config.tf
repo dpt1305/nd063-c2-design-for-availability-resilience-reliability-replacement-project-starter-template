@@ -7,7 +7,14 @@ terraform {
   }
 }
 provider "aws" {
-  region                   = "ap-east-1"
+	alias = "az1"
+  region                   = "ap-southeast-1"
   shared_credentials_files = ["~/.aws/credentials"]
-  profile                  = "default"
+  # profile                  = "default"
+}
+provider "aws" {
+	alias = "az2"
+  region                   = "ap-southeast-2"
+  shared_credentials_files = ["~/.aws/credentials"]
+  # profile                  = "default"
 }
