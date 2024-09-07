@@ -26,3 +26,18 @@ resource "aws_instance" "udacity_ec2_active" {
   }
 	provider = aws.az1
 }
+resource "aws_instance" "udacity_ec2_standby" {
+	# Amazon Linux 2023 AMI
+  ami           	= "ami-0182f373e66f89c85"   
+  instance_type 	= "t2.micro"
+	subnet_id     	= resource.aws_cloudformation_stack.secondary_stack.outputs["PublicSubnetId1"] 
+	security_groups = [
+		resource.aws_cloudformation_stack.secondary_stack.outputs["ApplicationSecurityGroup"] 
+	]
+	key_name 				= resource.aws_key_pair.udacity_key_standby.key_name
+
+  tags = {
+    Name = "udacity_ec2_standby"
+  }
+	provider = aws.az2
+}
