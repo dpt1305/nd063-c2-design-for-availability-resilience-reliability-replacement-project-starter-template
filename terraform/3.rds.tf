@@ -1,12 +1,14 @@
 # ---------- Variables
 variable "database_username" {
-	type = string
+	type 				= string
 	description = "Username for database"
+	default 		= "udacity"	
 }
 variable "database_password" {
-	type = string
-	description = "Password for database"
-	sensitive = true
+	type				 = string
+	description  = "Password for database"
+	default			 = "Udacity_123"
+	sensitive    = true
 }
 
 # ------------- DB Subnet Group ---------------
