@@ -44,12 +44,12 @@ resource "aws_cloudformation_stack" "primary_stack" {
   template_body = file("../cloudformation/vpc.yaml")
 	provider = aws.az1
 }
-# resource "aws_cloudformation_stack" "secondary_stack" {
-#   name = "cd1908-project-stack-secondary"
-# 	parameters = var.secondary_vpc_parameter
-#   template_body = file("../cloudformation/vpc.yaml")
-# 	provider = aws.az2
-# }
+resource "aws_cloudformation_stack" "secondary_stack" {
+	name = "cd1908-project-stack-secondary"
+	parameters = var.secondary_vpc_parameter
+	template_body = file("../cloudformation/vpc.yaml")
+	provider = aws.az2
+}
 
 
 
