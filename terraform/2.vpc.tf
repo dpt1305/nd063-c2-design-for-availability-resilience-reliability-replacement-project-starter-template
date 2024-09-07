@@ -37,19 +37,20 @@ variable "secondary_vpc_parameter" {
 	} 
 }
 
-
-resource "aws_cloudformation_stack" "primary_vpc" {
+# ------------ Stack -------------
+resource "aws_cloudformation_stack" "primary_stack" {
   name = "cd1908-project-stack"
-	parameters = var.primary_vpc_parameter
+  parameters = var.primary_vpc_parameter
   template_body = file("../cloudformation/vpc.yaml")
 	provider = aws.az1
 }
-# resource "aws_cloudformation_stack" "secondary_vpc" {
+# resource "aws_cloudformation_stack" "secondary_stack" {
 #   name = "cd1908-project-stack-secondary"
 # 	parameters = var.secondary_vpc_parameter
 #   template_body = file("../cloudformation/vpc.yaml")
 # 	provider = aws.az2
 # }
+
 
 
 
