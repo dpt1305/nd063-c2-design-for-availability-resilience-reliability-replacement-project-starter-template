@@ -40,4 +40,4 @@ resource "aws_instance" "udacity_ec2_standby" {
     Name = "udacity_ec2_standby"
   }
 	provider = aws.az2
-} 
+}
