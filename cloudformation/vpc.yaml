@@ -180,7 +180,7 @@ Resources:
   PrivateSubnet2RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
-      RouteTableId: !Ref PublicRouteTable
+      RouteTableId: !Ref PrivateRouteTable
       SubnetId: !Ref PrivateSubnet2
 
   DatabaseSecurityGroup:
