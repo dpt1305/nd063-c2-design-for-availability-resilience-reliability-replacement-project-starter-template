@@ -171,6 +171,18 @@ Resources:
         - Key: Name
           Value: !Sub ${VpcName} Private Routes
 
+  PrivateSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PrivateRouteTable
+      SubnetId: !Ref PrivateSubnet1
+
+  PrivateSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PrivateRouteTable
+      SubnetId: !Ref PrivateSubnet2
+
   DatabaseSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -216,6 +228,14 @@ Outputs:
     Description: A list of the private subnets
     Value: !Join [ ", ", [ !Ref PrivateSubnet1, !Ref PrivateSubnet2 ]]
   
+  PublicSubnetId1:
+    Description: Public subnet ID 1
+    Value: !Ref PublicSubnet1
+  
+  PublicSubnetId2:
+    Description: Public subnet ID 2
+    Value: !Ref PublicSubnet2 
+
   PrivateSubnetId1:
     Description: Private Subnet ID 1
     Value: !Ref PrivateSubnet1
