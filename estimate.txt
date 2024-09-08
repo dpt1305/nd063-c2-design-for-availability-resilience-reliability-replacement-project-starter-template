@@ -1,0 +1,11 @@
+According to the AWS RDS document (https://aws.amazon.com/rds/features/multi-az/), we can believe in AWS's abilities while using the full-managed services such as RDS.
+We can achieve the system with the high availability, reliability and resiliency by using Multi-AZ RDS.
+In this case, we are desiring to use 2 RDS instances on 2 regions (1 master - 1 replica).   
+Therefore, in single AZ outage case, we can expect that minumum RTO is 1 second and minimum RPO is 10 seconds
+In case of region outage, I estimate minimum 5 minutes RTO and minimum 30 minutes RPO, hence it takes more time for promoting the replica instance or our staffs can go to the office for solving the accidents. 
+
+In summary, this is my estimation for my system:
+1. Minimum RTO for a single AZ outage: 1 second
+2. Minimum RTO for a single region outage: 5 minutes
+3. Minimum RPO for a single AZ outage: 10 second
+4. Minimum RPO for a single region outage: 30 minutes
